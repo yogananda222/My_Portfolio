@@ -42,13 +42,8 @@
   
   ::-webkit-scrollbar-thumb {
     border-radius: 12px;
-    background: linear-gradient(135deg, #f57308, #fff, rgb(11, 242, 7));
+    background: gray;
   }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #1a6ad2, #fff, rgb(245, 5, 53));
-  }
-  
   /*  Simillar  */
   
   section {
@@ -139,7 +134,7 @@
   
   /*  Nav Logo Span Linear-Gradient  */
   .navbar .logo a span {
-    background: linear-gradient(135deg, #041d3d, #fff, crimson);
+    background: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: all 0.3s ease;
@@ -164,7 +159,7 @@
   }
   
   .navbar .menu li a:hover {
-    color: #1e3551;
+    color: #e75719;
   }
   
   .navbar.sticky .menu li a:hover {
@@ -212,7 +207,7 @@
   /*  Home  */
   .home {
     display: flex;
-    background-image: url("pexels-johannes-plenio-2850287.jpg");
+    background-image: url("/portfolio background.jpg");
     height: 100vh;
     color: #fff;
     min-height: 500px;
@@ -248,7 +243,7 @@
   /* Linear Gradient */
   .home .home-content .text-3 span {
     color: #1e3551;
-    background: linear-gradient(135deg, #041d3d, #fff, crimson);
+    background: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 500;
