@@ -256,57 +256,90 @@
           <div class="col-lg-6 col-12">
             <div class="contact-form">
               <h2 class="mb-4">Interested to work together? Let's talk</h2>
-    
+          
               <form id="form" action="" method="get">
                 <div class="row">
                   <div class="col-lg-6 col-12">
                     <input type="text" class="form-control" name="from_name" placeholder="Your Name" id="name">
+                    <span class="error-message" id="name-error"></span>
                   </div>
-    
+          
                   <div class="col-lg-6 col-12">
                     <input type="email" class="form-control" name="from_email" placeholder="Email" id="email">
+                    <span class="error-message" id="email-error"></span>
                   </div>
-    
+          
                   <div class="col-12">
                     <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
+                    <span class="error-message" id="message-error"></span>
                   </div>
-    
+          
                   <div class="ml-lg-auto col-lg-5 col-12">
                     <input type="submit" id="button" class="form-control submit-btn" value="Send Button">
                   </div>
                 </div>
               </form>
-    
+          
               <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
               <script type="text/javascript">
                 document.addEventListener('DOMContentLoaded', function() {
                   emailjs.init('iHneAbai7z90gN0KY');
-    
-                  document.getElementById('form').addEventListener('submit', function (event) {
+          
+                  document.getElementById('form').addEventListener('submit', function(event) {
                     event.preventDefault();
-    
-                    const btn = document.getElementById('button');
-                    btn.value = 'Sending...';
-    
-                    const serviceID = 'service_h6kinhc';
-                    const templateID = 'template_62f3ldq';
-    
-                    emailjs.sendForm(serviceID, templateID, this).then(
-                      () => {
-                        btn.value = 'Send Button';
-                        alert('Sent!');
-                        this.reset();
-                      },
-                      (err) => {
-                        btn.value = 'Send Button';
-                        alert('Error: ' + JSON.stringify(err));
-                      }
-                    );
+          
+                    let valid = true;
+          
+                    // Reset error messages
+                    document.getElementById('name-error').innerText = '';
+                    document.getElementById('email-error').innerText = '';
+                    document.getElementById('message-error').innerText = '';
+          
+                    // Validate form fields
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+          
+                    if (!name) {
+                      valid = false;
+                      document.getElementById('name-error').innerText = 'Please enter your name.';
+                    }
+          
+                    if (!email) {
+                      valid = false;
+                      document.getElementById('email-error').innerText = 'Please enter your email.';
+                    }
+          
+                    if (!message) {
+                      valid = false;
+                      document.getElementById('message-error').innerText = 'Please enter the message.';
+                    }
+          
+                    if (valid) {
+                      const btn = document.getElementById('button');
+                      btn.value = 'Sending...';
+          
+                      const serviceID = 'service_h6kinhc';
+                      const templateID = 'template_62f3ldq';
+          
+                      emailjs.sendForm(serviceID, templateID, this).then(
+                        () => {
+                          btn.value = 'Send Button';
+                          alert('Sent!');
+                          this.reset();
+                        },
+                        (err) => {
+                          btn.value = 'Send Button';
+                          alert('Error: ' + JSON.stringify(err));
+                        }
+                      );
+                    }
                   });
                 });
               </script>
             </div>
           </div>
+          
         </div>
       </div>
     </section>
